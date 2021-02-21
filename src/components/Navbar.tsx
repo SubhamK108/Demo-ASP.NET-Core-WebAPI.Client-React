@@ -13,6 +13,9 @@ const Navbar: React.FC = () => {
                 <Link to="/counter">
                     <button className="btn btn-sm btn-secondary m-3" type="button">Counter</button>
                 </Link>
+                <Link to="/get_from_api">
+                    <button className="btn btn-sm btn-secondary m-3" type="button">Get From API</button>
+                </Link>
             </form>
         </nav>
     );
