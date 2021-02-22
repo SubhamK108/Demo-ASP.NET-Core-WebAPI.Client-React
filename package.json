@@ -1,6 +1,5 @@
 {
   "name": "web-api-test",
-  "homepage": "https://demo.subhamk.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
