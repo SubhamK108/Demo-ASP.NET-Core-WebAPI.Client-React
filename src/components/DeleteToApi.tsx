@@ -41,7 +41,7 @@ const DeleteToApi: React.FC = () => {
 
     return (
         <form className="row g-3" onSubmit={SubmitForm}>
-            <div className="col-md-2">
+            <div className="col-3">
                 <label htmlFor="id" className="form-label">ID</label>
                 <input type="text" className="form-control" placeholder="ID" onChange={e => setId(parseInt(e.target.value))} />
             </div>
