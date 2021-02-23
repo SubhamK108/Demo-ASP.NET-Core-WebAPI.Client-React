@@ -10,6 +10,11 @@ interface User {
 };
 
 
+interface FetchTableProps {
+    users: User[]
+};
+
+
 const GetFromApi: React.FC = () => {
 
     useEffect(() => {
@@ -51,6 +56,15 @@ const GetFromApi: React.FC = () => {
         <div>
             <h1>Fetching the list of Users from the ASP.NET Core Web API...</h1>
             <br></br>
+            {users.length === 0 ? <TableLoadingSpinner /> : <FetchTable users={users} />}
+        </div>
+    );
+}
+
+
+const FetchTable: React.FC<FetchTableProps> = (props) => {
+    return (
+        <div>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -60,7 +74,7 @@ const GetFromApi: React.FC = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user: User) => (
+                    {props.users.map((user: User) => (
                         <tr key={user.email}>
                             <td>{user.id}</td>
                             <td>{user.name}</td>
@@ -69,6 +83,17 @@ const GetFromApi: React.FC = () => {
                     ))}
                 </tbody>
             </table>
+        </div>
+    );
+}
+
+
+const TableLoadingSpinner: React.FC = () => {
+    return (
+        <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+            </div>
+            <h3 style={{ paddingLeft: 20 }}>Loading...</h3>
         </div>
     );
 }
