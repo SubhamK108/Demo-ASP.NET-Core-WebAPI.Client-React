@@ -36,9 +36,9 @@ const GetFromApi: React.FC = () => {
 
             }
 
-            const users: User[] = await response.json();
-            setUsers(users);
-            console.log(users);
+            const json: User[] = await response.json();
+            console.log(json);
+            setUsers(json);
 
         } catch (error) {
 
