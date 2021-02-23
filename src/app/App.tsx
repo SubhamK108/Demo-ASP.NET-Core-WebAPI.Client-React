@@ -6,6 +6,7 @@ import Counter from "../components/Counter";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GetFromApi from "../components/GetFromApi";
 import PostToApi from "../components/PostToApi";
+import DeleteToApi from "../components/DeleteToApi";
 
 
 const App: React.FC = () => {
@@ -17,6 +18,7 @@ const App: React.FC = () => {
                 <Route path="/counter" exact component={Counter} />
                 <Route path="/get_from_api" exact component={GetFromApi} />
                 <Route path="/post_to_api" exact component={PostToApi} />
+                <Route path="/delete_to_api" exact component={DeleteToApi} />
             </Switch>
         </Router>
     );
