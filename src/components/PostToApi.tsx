@@ -14,8 +14,9 @@ const PostToApi: React.FC = () => {
 
     const [user, setUser] = useState<User>({ id: NaN, name: "", email: "", password: "" });
 
-    const SubmitForm = async () => {
+    const SubmitForm = async (e: React.FormEvent) => {
 
+        e.preventDefault();
         console.log(user);
 
         try {
@@ -48,7 +49,7 @@ const PostToApi: React.FC = () => {
     }
 
     return (
-        <form className="row g-3">
+        <form className="row g-3" onSubmit={SubmitForm}>
             <div className="col-md-2">
                 <label htmlFor="id" className="form-label">ID</label>
                 <input type="text" className="form-control" placeholder="ID" onChange={e => setUser({ ...user, id: parseInt(e.target.value) })} />
@@ -66,7 +67,7 @@ const PostToApi: React.FC = () => {
                 <input type="password" className="form-control" onChange={e => setUser({ ...user, password: e.target.value })} />
             </div>
             <div style={{ paddingTop: 20 }} className="col-12">
-                <button type="submit" className="btn btn-primary" onClick={SubmitForm}>Sign Up</button>
+                <button type="submit" className="btn btn-primary">Sign Up</button>
             </div>
         </form>
     );
