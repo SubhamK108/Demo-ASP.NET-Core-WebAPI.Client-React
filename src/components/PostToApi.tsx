@@ -50,19 +50,19 @@ const PostToApi: React.FC = () => {
 
     return (
         <form className="row g-3" onSubmit={SubmitForm}>
-            <div className="col-3">
+            <div className="col-4">
                 <label htmlFor="id" className="form-label">ID</label>
                 <input type="text" className="form-control" placeholder="ID" onChange={e => setUser({ ...user, id: parseInt(e.target.value) })} />
             </div>
-            <div className="col-6">
+            <div className="col-12">
                 <label htmlFor="name" className="form-label">Name</label>
                 <input type="text" className="form-control" placeholder="Your Name" onChange={e => setUser({ ...user, name: e.target.value })} />
             </div>
-            <div className="col-6">
+            <div className="col-12">
                 <label htmlFor="email" className="form-label">Email</label>
                 <input type="email" className="form-control" placeholder="Your Email" onChange={e => setUser({ ...user, email: e.target.value })} />
             </div>
-            <div className="col-6">
+            <div className="col-12">
                 <label htmlFor="password" className="form-label">Password</label>
                 <input type="password" className="form-control" onChange={e => setUser({ ...user, password: e.target.value })} />
             </div>
