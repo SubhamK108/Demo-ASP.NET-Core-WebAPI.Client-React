@@ -46,7 +46,7 @@ const PostToApi: React.FC = () => {
         } catch (error) {
 
             console.log("Invalid Credentials! 😥");
-            alert("Invalid Credentials! 😥")
+            alert("Invalid Credentials! 😥");
 
         }
     }
