@@ -14,6 +14,7 @@ interface User {
 const PostToApi: React.FC = () => {
 
     const [user, setUser] = useState<User>({ id: NaN, name: "", email: "", password: "" });
+    const history = useHistory();
 
     const SubmitForm = async (e: React.FormEvent) => {
 
@@ -34,7 +35,6 @@ const PostToApi: React.FC = () => {
 
                 console.log("User Added 😃");
                 alert("User Added 😃");
-                let history = useHistory();
                 history.push("/get_from_api");
 
             } else {
