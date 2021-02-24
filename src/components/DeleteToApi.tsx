@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { useHistory } from "react-router-dom";
 
 
 const DeleteToApi: React.FC = () => {
 
     const [id, setId] = useState<number>(NaN);
+    const history = useHistory();
 
     const SubmitForm = async (e: React.FormEvent) => {
 
@@ -23,7 +25,8 @@ const DeleteToApi: React.FC = () => {
             if (response.ok) {
 
                 console.log("User Deleted 😃");
-                alert("User Deleted 😃")
+                alert("User Deleted 😃");
+                history.push("/get_from_api");
 
             } else {
 
@@ -34,7 +37,7 @@ const DeleteToApi: React.FC = () => {
         } catch (error) {
 
             console.log("Invalid User ID! 😥");
-            alert("Invalid User ID! 😥")
+            alert("Invalid User ID! 😥");
 
         }
     }
