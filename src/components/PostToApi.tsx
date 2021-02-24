@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { useHistory } from "react-router-dom";
 
 
 interface User {
@@ -32,7 +33,9 @@ const PostToApi: React.FC = () => {
             if (response.ok) {
 
                 console.log("User Added 😃");
-                alert("User Added 😃")
+                alert("User Added 😃");
+                let history = useHistory();
+                history.push("/get_from_api");
 
             } else {
 
