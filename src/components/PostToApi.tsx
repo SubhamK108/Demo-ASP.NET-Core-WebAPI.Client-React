@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { useHistory } from "react-router-dom";
 
 
 interface User {
@@ -13,6 +14,7 @@ interface User {
 const PostToApi: React.FC = () => {
 
     const [user, setUser] = useState<User>({ name: "", username: "", email: "", password: "" });
+    const history = useHistory();
 
     const SubmitForm = async (e: React.FormEvent) => {
 
@@ -32,7 +34,8 @@ const PostToApi: React.FC = () => {
             if (response.ok) {
 
                 console.log("User Added 😃");
-                alert("User Added 😃")
+                alert("User Added 😃");
+                history.push("/get_from_api");
 
             } else {
 
@@ -43,7 +46,7 @@ const PostToApi: React.FC = () => {
         } catch (error) {
 
             console.log("Invalid Credentials! 😥");
-            alert("Invalid Credentials! 😥")
+            alert("Invalid Credentials! 😥");
 
         }
     }
@@ -62,7 +65,7 @@ const PostToApi: React.FC = () => {
                 <label htmlFor="email" className="form-label">Email</label>
                 <input type="email" className="form-control" placeholder="Your Email" onChange={e => setUser({ ...user, email: e.target.value })} />
             </div>
-            <div className="col-md-6">
+            <div className="col-9">
                 <label htmlFor="password" className="form-label">Password</label>
                 <input type="password" className="form-control" onChange={e => setUser({ ...user, password: e.target.value })} />
             </div>
