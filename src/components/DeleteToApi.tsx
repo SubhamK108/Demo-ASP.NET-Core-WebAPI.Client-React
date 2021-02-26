@@ -36,8 +36,8 @@ const DeleteToApi: React.FC = () => {
 
         } catch (error) {
 
-            console.log("Invalid User ID! 😥");
-            alert("Invalid User ID! 😥");
+            console.log("Invalid Username or Email! 😥");
+            alert("Invalid Username or Email! 😥");
 
         }
     }
