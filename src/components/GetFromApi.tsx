@@ -3,8 +3,8 @@ import "bootstrap/dist/css/bootstrap.css";
 
 
 interface User {
-    id: number,
     name: string,
+    username: string
     email: string,
     password: string
 };
@@ -68,16 +68,16 @@ const FetchTable: React.FC<FetchTableProps> = (props) => {
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">User ID</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Username</th>
                         <th scope="col">Email ID</th>
                     </tr>
                 </thead>
                 <tbody>
                     {props.users.map((user: User) => (
                         <tr key={user.email}>
-                            <td>{user.id}</td>
                             <td>{user.name}</td>
+                            <td>{user.username}</td>
                             <td>{user.email}</td>
                         </tr>
                     ))}
