@@ -1,8 +1,7 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-
-const Home: React.FC = () => {
+const Home: React.FC = (): ReactElement => {
     return (
         <div>
             <h1>This is a Demo App made in:</h1>
@@ -18,6 +17,5 @@ const Home: React.FC = () => {
         </div>
     );
 }
-
 
 export default Home;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "../components/Navbar";
 import Home from "../components/Home";
@@ -8,8 +8,7 @@ import GetFromApi from "../components/GetFromApi";
 import PostToApi from "../components/PostToApi";
 import DeleteToApi from "../components/DeleteToApi";
 
-
-const App: React.FC = () => {
+const App: React.FC = (): ReactElement => {
     return (
         <Router>
             <Navbar />
@@ -23,6 +22,5 @@ const App: React.FC = () => {
         </Router>
     );
 }
-
 
 export default App;

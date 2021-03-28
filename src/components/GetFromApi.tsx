@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-
 
 interface User {
     name: string,
@@ -9,46 +8,30 @@ interface User {
     password: string
 };
 
-
 interface FetchTableProps {
     users: User[]
 };
 
-
-const GetFromApi: React.FC = () => {
-
+const GetFromApi: React.FC = (): ReactElement => {
     useEffect(() => {
-
         fetchUsers();
-
     }, []);
 
     const [users, setUsers] = useState<User[]>([]);
 
-    const fetchUsers = async () => {
-
+    const fetchUsers = async (): Promise<void> => {
         try {
-
             const response = await fetch("https://asp-net-core-api-demo.herokuapp.com/api/user/");
-
             if (response.ok) {
-
                 console.log("Response Received 😃");
-
             } else {
-
                 throw new Error();
-
             }
-
             const json: User[] = await response.json();
             console.log(json);
             setUsers(json);
-
         } catch (error) {
-
             console.log("Bad Request 😥");
-
         }
     };
 
@@ -61,8 +44,7 @@ const GetFromApi: React.FC = () => {
     );
 }
 
-
-const FetchTable: React.FC<FetchTableProps> = (props) => {
+const FetchTable: React.FC<FetchTableProps> = (props): ReactElement => {
     return (
         <div>
             <table className="table table-striped">
@@ -87,8 +69,7 @@ const FetchTable: React.FC<FetchTableProps> = (props) => {
     );
 }
 
-
-const TableLoadingSpinner: React.FC = () => {
+const TableLoadingSpinner: React.FC = (): ReactElement => {
     return (
         <div className="d-flex justify-content-center">
             <div className="spinner-border" role="status">
@@ -97,6 +78,5 @@ const TableLoadingSpinner: React.FC = () => {
         </div>
     );
 }
-
 
 export default GetFromApi;

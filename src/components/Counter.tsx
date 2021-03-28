@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-
-const Counter: React.FC = () => {
+const Counter: React.FC = (): ReactElement => {
     const [count, setCount] = useState<number>(0);
 
-    const incrementCounter = () => {
+    const incrementCounter = (): void => {
         setCount(count + 1);
     };
 
-    const resetCounter = () => {
+    const resetCounter = (): void => {
         setCount(count - count);
     };
 
@@ -21,6 +20,5 @@ const Counter: React.FC = () => {
         </div>
     );
 }
-
 
 export default Counter;
