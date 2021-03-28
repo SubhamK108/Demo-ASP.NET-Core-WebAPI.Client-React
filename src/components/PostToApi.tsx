@@ -23,7 +23,7 @@ const PostToApi: React.FC = () => {
 
         try {
 
-            const response = await fetch("https://asp-net-web-api-demo.herokuapp.com/api/user/adduser/", {
+            const response = await fetch("https://asp-net-core-api-demo.herokuapp.com/api/user/adduser/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

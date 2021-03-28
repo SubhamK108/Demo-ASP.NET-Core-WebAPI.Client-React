@@ -15,7 +15,7 @@ const DeleteToApi: React.FC = () => {
 
         try {
 
-            const response = await fetch(`https://asp-net-web-api-demo.herokuapp.com/api/user/deleteuser/${key}/`, {
+            const response = await fetch(`https://asp-net-core-api-demo.herokuapp.com/api/user/deleteuser/${key}/`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"
