@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-const Counter: React.FC = (): ReactElement => {
+const Counter = (): ReactElement => {
     const [count, setCount] = useState<number>(0);
 
     const incrementCounter = (): void => {

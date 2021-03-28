@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useHistory } from "react-router-dom";
 
-const DeleteToApi: React.FC = (): ReactElement => {
+const DeleteToApi = (): ReactElement => {
     const [key, setKey] = useState<string>("");
     const history = useHistory();
 
@@ -33,7 +33,7 @@ const DeleteToApi: React.FC = (): ReactElement => {
         <form className="row g-3" onSubmit={SubmitForm}>
             <div className="col-6">
                 <label htmlFor="id" className="form-label">Email / Username</label>
-                <input type="text" className="form-control" placeholder="Your Email / Username" onInput={e => setKey(e.currentTarget.value)} />
+                <input required type="text" className="form-control" placeholder="Email / Username" onInput={e => setKey(e.currentTarget.value)} />
             </div>
             <div style={{ paddingTop: 20 }} className="col-12">
                 <button type="submit" className="btn btn-primary">Delete User</button>

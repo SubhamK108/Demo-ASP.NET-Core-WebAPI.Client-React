@@ -8,7 +8,7 @@ import GetFromApi from "../components/GetFromApi";
 import PostToApi from "../components/PostToApi";
 import DeleteToApi from "../components/DeleteToApi";
 
-const App: React.FC = (): ReactElement => {
+const App = (): ReactElement => {
     return (
         <Router>
             <Navbar />

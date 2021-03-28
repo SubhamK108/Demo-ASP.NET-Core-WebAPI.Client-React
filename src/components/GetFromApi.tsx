@@ -12,7 +12,7 @@ interface FetchTableProps {
     users: User[]
 };
 
-const GetFromApi: React.FC = (): ReactElement => {
+const GetFromApi = (): ReactElement => {
     useEffect(() => {
         fetchUsers();
     }, []);
@@ -44,7 +44,7 @@ const GetFromApi: React.FC = (): ReactElement => {
     );
 }
 
-const FetchTable: React.FC<FetchTableProps> = (props): ReactElement => {
+const FetchTable = (props: FetchTableProps): ReactElement => {
     return (
         <div>
             <table className="table table-striped">
@@ -69,7 +69,7 @@ const FetchTable: React.FC<FetchTableProps> = (props): ReactElement => {
     );
 }
 
-const TableLoadingSpinner: React.FC = (): ReactElement => {
+const TableLoadingSpinner = (): ReactElement => {
     return (
         <div className="d-flex justify-content-center">
             <div className="spinner-border" role="status">

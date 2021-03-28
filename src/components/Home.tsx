@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-const Home: React.FC = (): ReactElement => {
+const Home = (): ReactElement => {
     return (
         <div>
             <h1>This is a Demo App made in:</h1>
