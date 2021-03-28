@@ -1,9 +1,8 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Link } from "react-router-dom";
 
-
-const Navbar: React.FC = () => {
+const Navbar: React.FC = (): ReactElement => {
     return (
         <nav className="navbar navbar-dark bg-dark">
             <form className="container-fluid justify-content-start">
@@ -26,6 +25,5 @@ const Navbar: React.FC = () => {
         </nav>
     );
 }
-
 
 export default Navbar;
