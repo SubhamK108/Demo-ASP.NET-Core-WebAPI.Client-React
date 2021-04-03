@@ -1,12 +1,6 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-
-interface User {
-    name: string,
-    username: string
-    email: string,
-    password: string
-};
+import { User } from "../models/User";
 
 interface FetchTableProps {
     users: User[]
