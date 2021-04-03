@@ -1,13 +1,7 @@
 import React, { ReactElement, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useHistory } from "react-router-dom";
-
-interface User {
-    name: string,
-    username: string
-    email: string,
-    password: string
-};
+import { User } from "../models/User";
 
 const PostToApi = (): ReactElement => {
     const [user, setUser] = useState<User>({ name: "", username: "", email: "", password: "" });

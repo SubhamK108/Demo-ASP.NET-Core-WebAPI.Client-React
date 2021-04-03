@@ -1,12 +1,6 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-
-interface User {
-    name: string,
-    username: string
-    email: string,
-    password: string
-};
+import { User } from "../models/User";
 
 interface FetchTableProps {
     users: User[]
@@ -24,12 +18,12 @@ const GetFromApi = (): ReactElement => {
             const response = await fetch("https://asp-net-core-api-demo.herokuapp.com/api/user/");
             if (response.ok) {
                 console.log("Response Received 😃");
+                const json: User[] = await response.json();
+                console.log(json);
+                setUsers(json);
             } else {
                 throw new Error();
             }
-            const json: User[] = await response.json();
-            console.log(json);
-            setUsers(json);
         } catch (error) {
             console.log("Bad Request 😥");
         }
