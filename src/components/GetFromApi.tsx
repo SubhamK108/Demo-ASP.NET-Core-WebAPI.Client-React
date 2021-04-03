@@ -1,33 +1,34 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { User } from "../models/User";
+import { useHistory } from "react-router";
 
 interface FetchTableProps {
     users: User[]
 };
 
 const GetFromApi = (): ReactElement => {
-    useEffect(() => {
-        fetchUsers();
-    }, []);
-
     const [users, setUsers] = useState<User[]>([]);
 
-    const fetchUsers = async (): Promise<void> => {
-        try {
-            const response = await fetch("https://asp-net-core-api-demo.herokuapp.com/api/user/");
-            if (response.ok) {
-                console.log("Response Received 😃");
-                const json: User[] = await response.json();
-                console.log(json);
-                setUsers(json);
-            } else {
-                throw new Error();
+    useEffect(() => {
+        const fetchUsers = async (): Promise<void> => {
+            try {
+                const response = await fetch("https://asp-net-core-api-demo.herokuapp.com/api/user/");
+                if (response.ok) {
+                    console.log("Response Received 😃");
+                    const json: User[] = await response.json();
+                    console.log(json);
+                    setUsers(json);
+                } else {
+                    throw new Error();
+                }
+            } catch (error) {
+                console.log("Bad Request 😥");
             }
-        } catch (error) {
-            console.log("Bad Request 😥");
-        }
-    };
+        };
+
+        fetchUsers();
+    }, []);
 
     return (
         <div>
@@ -39,6 +40,8 @@ const GetFromApi = (): ReactElement => {
 }
 
 const FetchTable = (props: FetchTableProps): ReactElement => {
+    const history = useHistory();
+
     return (
         <div>
             <table className="table table-striped">
@@ -51,7 +54,7 @@ const FetchTable = (props: FetchTableProps): ReactElement => {
                 </thead>
                 <tbody>
                     {props.users.map((user: User) => (
-                        <tr key={user.email}>
+                        <tr style={{ cursor: "pointer" }} onClick={e => history.push(`/edittoapi/${user.username}`)} key={user.email}>
                             <td>{user.name}</td>
                             <td>{user.username}</td>
                             <td>{user.email}</td>
