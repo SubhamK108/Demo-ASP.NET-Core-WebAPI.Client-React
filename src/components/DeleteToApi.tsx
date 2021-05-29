@@ -6,7 +6,8 @@ const DeleteToApi = (): ReactElement => {
     const [key, setKey] = useState<string>("");
     const history = useHistory();
 
-    const SubmitForm = async (e: React.FormEvent): Promise<void> => {
+    const submitForm = async (e: React.FormEvent): Promise<void> => {
+        console.clear();
         e.preventDefault();
         console.log(key);
         try {
@@ -20,20 +21,22 @@ const DeleteToApi = (): ReactElement => {
                 console.log("User Deleted 😃");
                 alert("User Deleted 😃");
                 history.push("/get_from_api");
-            } else {
+            }
+            else {
                 throw new Error();
             }
-        } catch (error) {
+        }
+        catch (error) {
             console.log("Invalid Username or Email! 😥");
             alert("Invalid Username or Email! 😥");
         }
     }
 
     return (
-        <form style={{textAlign: 'center'}} className="row g-3" onSubmit={SubmitForm}>
-            <div style={{margin: 'auto'}} className="col-6">
+        <form style={{ textAlign: 'center' }} className="row g-3" onSubmit={submitForm}>
+            <div style={{ margin: 'auto' }} className="col-6">
                 <label htmlFor="id" className="form-label">Email / Username</label>
-                <input style={{textAlign: 'center'}} required type="text" className="form-control" placeholder="Email / Username" onInput={e => setKey(e.currentTarget.value)} />
+                <input style={{ textAlign: 'center' }} required type="text" className="form-control" placeholder="Email / Username" onInput={e => setKey(e.currentTarget.value)} />
             </div>
             <div style={{ paddingTop: 20 }} className="col-12">
                 <button type="submit" className="btn btn-primary">Delete User</button>

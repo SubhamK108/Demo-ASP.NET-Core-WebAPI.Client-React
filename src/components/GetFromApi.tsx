@@ -2,6 +2,7 @@ import React, { ReactElement, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { User } from "../models/User";
 import { useHistory } from "react-router";
+import LoadingSpinner from "../shared/LoadingSpinner";
 
 interface FetchTableProps {
     users: User[]
@@ -12,6 +13,7 @@ const GetFromApi = (): ReactElement => {
 
     useEffect(() => {
         const fetchUsers = async (): Promise<void> => {
+            console.clear();
             try {
                 const response = await fetch("https://asp-net-core-api-demo.herokuapp.com/api/user/");
                 if (response.ok) {
@@ -19,10 +21,12 @@ const GetFromApi = (): ReactElement => {
                     const json: User[] = await response.json();
                     console.log(json);
                     setUsers(json);
-                } else {
+                }
+                else {
                     throw new Error();
                 }
-            } catch (error) {
+            }
+            catch (error) {
                 console.log("Bad Request 😥");
             }
         };
@@ -31,10 +35,16 @@ const GetFromApi = (): ReactElement => {
     }, []);
 
     return (
-        <div style={{textAlign: 'center'}}>
+        <div style={{ textAlign: 'center' }}>
             <h1>Fetching the list of Users from the ASP.NET Core Web API...</h1>
             <br></br>
-            {users.length === 0 ? <TableLoadingSpinner /> : <FetchTable users={users} />}
+            {users.length === 0 ? (
+                <LoadingSpinner />
+            ) : (
+                <FetchTable 
+                    users={users}
+                />
+            )}
         </div>
     );
 }
@@ -43,7 +53,7 @@ const FetchTable = (props: FetchTableProps): ReactElement => {
     const history = useHistory();
 
     return (
-        <div style={{textAlign: 'center'}}>
+        <div style={{ textAlign: 'center' }}>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -62,16 +72,6 @@ const FetchTable = (props: FetchTableProps): ReactElement => {
                     ))}
                 </tbody>
             </table>
-        </div>
-    );
-}
-
-const TableLoadingSpinner = (): ReactElement => {
-    return (
-        <div className="d-flex justify-content-center">
-            <div className="spinner-border" role="status">
-            </div>
-            <h3 style={{ paddingLeft: 20 }}>Loading...</h3>
         </div>
     );
 }
