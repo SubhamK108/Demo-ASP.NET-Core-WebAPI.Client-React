@@ -32,22 +32,22 @@ const PostToApi = (): ReactElement => {
     }
 
     return (
-        <form className="row g-3" onSubmit={SubmitForm}>
+        <form style={{textAlign: 'center'}} className="row g-3" onSubmit={SubmitForm}>
             <div className="col-6">
                 <label htmlFor="name" className="form-label">Name</label>
-                <input required type="text" className="form-control" placeholder="Your Name" onInput={e => setUser({ ...user, name: e.currentTarget.value })} />
+                <input style={{textAlign: 'center'}} required type="text" className="form-control" placeholder="Your Name" onInput={e => setUser({ ...user, name: e.currentTarget.value })} />
             </div>
             <div className="col-6">
                 <label htmlFor="username" className="form-label">Username</label>
-                <input required type="text" className="form-control" placeholder="Your Username" onInput={e => setUser({ ...user, username: e.currentTarget.value })} />
+                <input style={{textAlign: 'center'}} required type="text" className="form-control" placeholder="Your Username" onInput={e => setUser({ ...user, username: e.currentTarget.value })} />
             </div>
-            <div className="col-md-6">
+            <div className="col-6">
                 <label htmlFor="email" className="form-label">Email</label>
-                <input required type="email" className="form-control" placeholder="Your Email" onInput={e => setUser({ ...user, email: e.currentTarget.value })} />
+                <input style={{textAlign: 'center'}} required type="email" className="form-control" placeholder="Your Email" onInput={e => setUser({ ...user, email: e.currentTarget.value })} />
             </div>
-            <div className="col-9">
+            <div className="col-6">
                 <label htmlFor="password" className="form-label">Password</label>
-                <input required type="password" className="form-control" placeholder="Your Password" onInput={e => setUser({ ...user, password: e.currentTarget.value })} />
+                <input style={{textAlign: 'center'}} required type="password" className="form-control" placeholder="Your Password" onInput={e => setUser({ ...user, password: e.currentTarget.value })} />
             </div>
             <div style={{ paddingTop: 20 }} className="col-12">
                 <button type="submit" className="btn btn-primary">Sign Up</button>

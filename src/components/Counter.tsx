@@ -13,7 +13,7 @@ const Counter = (): ReactElement => {
     };
 
     return (
-        <div>
+        <div style={{textAlign: 'center'}}>
             <span style={{fontSize: 25}} className="badge rounded-pill bg-success m-4">{count}</span>
             <button style={{fontSize: 25, fontWeight: "bold"}} className="btn btn-info m-2" onClick={incrementCounter}>Increment</button>
             <button style={{fontSize: 25, fontWeight: "bold"}} className="btn btn-warning m-2" onClick={resetCounter}>Reset</button>

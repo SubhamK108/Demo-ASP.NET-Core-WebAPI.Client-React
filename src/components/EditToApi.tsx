@@ -63,7 +63,7 @@ const EditToApi = (): ReactElement => {
     }
 
     return (
-        <div>
+        <div style={{textAlign: 'center'}}>
             {user.name === "" ? <FormLoadingSpinner /> : <EditForm user={user} setUser={setUser} submitForm={SubmitForm} />}
         </div>
     );
@@ -73,22 +73,22 @@ export default EditToApi;
 
 const EditForm = (props: EditFormProps): ReactElement => {
     return (
-        <form className="row g-3" onSubmit={props.submitForm}>
+        <form style={{textAlign: 'center'}} className="row g-3" onSubmit={props.submitForm}>
             <div className="col-6">
                 <label htmlFor="name" className="form-label">Name</label>
-                <input required type="text" className="form-control" value={props.user.name} placeholder="Your Name" onInput={e => props.setUser({ ...props.user, name: e.currentTarget.value })} />
+                <input style={{textAlign: 'center'}} required type="text" className="form-control" value={props.user.name} placeholder="Your Name" onInput={e => props.setUser({ ...props.user, name: e.currentTarget.value })} />
             </div>
             <div className="col-6">
                 <label htmlFor="username" className="form-label">Username</label>
-                <input required type="text" className="form-control" value={props.user.username} placeholder="Your Username" onInput={e => props.setUser({ ...props.user, username: e.currentTarget.value })} />
+                <input style={{textAlign: 'center'}} required type="text" className="form-control" value={props.user.username} placeholder="Your Username" onInput={e => props.setUser({ ...props.user, username: e.currentTarget.value })} />
             </div>
-            <div className="col-md-6">
+            <div className="col-6">
                 <label htmlFor="email" className="form-label">Email</label>
-                <input required type="email" className="form-control" value={props.user.email} placeholder="Your Email" onInput={e => props.setUser({ ...props.user, email: e.currentTarget.value })} />
+                <input style={{textAlign: 'center'}} required type="email" className="form-control" value={props.user.email} placeholder="Your Email" onInput={e => props.setUser({ ...props.user, email: e.currentTarget.value })} />
             </div>
-            <div className="col-9">
+            <div className="col-6">
                 <label htmlFor="password" className="form-label">Password</label>
-                <input required type="password" className="form-control" value={props.user.password} placeholder="Your Password" onInput={e => props.setUser({ ...props.user, password: e.currentTarget.value })} />
+                <input style={{textAlign: 'center'}} required type="password" className="form-control" value={props.user.password} placeholder="Your Password" onInput={e => props.setUser({ ...props.user, password: e.currentTarget.value })} />
             </div>
             <div style={{ paddingTop: 20 }} className="col-12">
                 <button type="submit" className="btn btn-primary">Sign Up</button>

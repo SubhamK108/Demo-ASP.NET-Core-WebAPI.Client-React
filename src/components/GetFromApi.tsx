@@ -31,7 +31,7 @@ const GetFromApi = (): ReactElement => {
     }, []);
 
     return (
-        <div>
+        <div style={{textAlign: 'center'}}>
             <h1>Fetching the list of Users from the ASP.NET Core Web API...</h1>
             <br></br>
             {users.length === 0 ? <TableLoadingSpinner /> : <FetchTable users={users} />}
@@ -43,7 +43,7 @@ const FetchTable = (props: FetchTableProps): ReactElement => {
     const history = useHistory();
 
     return (
-        <div>
+        <div style={{textAlign: 'center'}}>
             <table className="table table-striped">
                 <thead>
                     <tr>

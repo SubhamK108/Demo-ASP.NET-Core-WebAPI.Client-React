@@ -30,10 +30,10 @@ const DeleteToApi = (): ReactElement => {
     }
 
     return (
-        <form className="row g-3" onSubmit={SubmitForm}>
-            <div className="col-6">
+        <form style={{textAlign: 'center'}} className="row g-3" onSubmit={SubmitForm}>
+            <div style={{margin: 'auto'}} className="col-6">
                 <label htmlFor="id" className="form-label">Email / Username</label>
-                <input required type="text" className="form-control" placeholder="Email / Username" onInput={e => setKey(e.currentTarget.value)} />
+                <input style={{textAlign: 'center'}} required type="text" className="form-control" placeholder="Email / Username" onInput={e => setKey(e.currentTarget.value)} />
             </div>
             <div style={{ paddingTop: 20 }} className="col-12">
                 <button type="submit" className="btn btn-primary">Delete User</button>
