@@ -60,14 +60,24 @@ const FetchTable = (props: FetchTableProps): ReactElement => {
                         <th scope="col">Name</th>
                         <th scope="col">Username</th>
                         <th scope="col">Email ID</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     {props.users.map((user: User) => (
-                        <tr style={{ cursor: "pointer" }} onClick={e => history.push(`/edittoapi/${user.username}`)} key={user.email}>
+                        <tr key={user.email}>
                             <td>{user.name}</td>
                             <td>{user.username}</td>
                             <td>{user.email}</td>
+                            <td>
+                                <i 
+                                    style={{ cursor: "pointer", color: "#196ce0" }}
+                                    title="Edit User"
+                                    onClick={() => history.push(`/edittoapi/${user.username}`)}
+                                    className="fas fa-user-edit"
+                                >
+                                </i>
+                            </td>                
                         </tr>
                     ))}
                 </tbody>

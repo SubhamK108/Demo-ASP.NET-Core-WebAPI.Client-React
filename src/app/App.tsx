@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import "@fortawesome/fontawesome-free/css/all.css"
 import Navbar from "../components/Navbar";
 import Home from "../components/Home";
 import Counter from "../components/Counter";
