@@ -163,7 +163,7 @@ const EditForm = (props: EditFormProps): ReactElement => {
                         <LoadingSpinnerSmall />
                     ) : (
                         props.validUsername === 1 ? (
-                            <p style={{ color: "darkgreen" }}>{props.user.username} is available. ✔</p>
+                            <p style={{ color: "darkgreen" }}>{props.user.username} is available. ✅</p>
                         ) : (
                             <p style={{ color: "darkred" }}>{props.user.username} is not available. ❌</p>
                         )
