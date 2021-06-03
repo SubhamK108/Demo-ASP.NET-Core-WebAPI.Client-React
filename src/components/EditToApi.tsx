@@ -93,7 +93,7 @@ const EditToApi = (): ReactElement => {
         }
     }
 
-    const startUsernameCheck = async (username: string) => {
+    const startUsernameCheck = (username: string): void => {
         if (checkerTimer !== undefined) {
             clearTimeout(checkerTimer);
         }
@@ -163,9 +163,9 @@ const EditForm = (props: EditFormProps): ReactElement => {
                         <LoadingSpinnerSmall />
                     ) : (
                         props.validUsername === 1 ? (
-                            <p style={{ color: "darkgreen" }}>{props.user.username} is available. ✅</p>
+                            <p style={{ color: "darkgreen", margin: 10 }}>{props.user.username} is available. ✅</p>
                         ) : (
-                            <p style={{ color: "darkred" }}>{props.user.username} is not available. ❌</p>
+                            <p style={{ color: "darkred", margin: 10 }}>{props.user.username} is not available. ❌</p>
                         )
                     )
                 )}
