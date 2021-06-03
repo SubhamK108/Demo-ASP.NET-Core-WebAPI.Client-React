@@ -10,4 +10,14 @@ const LoadingSpinner = (): ReactElement => {
     );
 }
 
+const LoadingSpinnerSmall = (): ReactElement => {
+    return (
+        <div style={{ margin: 10, color: "#196ce0" }} className="d-flex justify-content-center">
+            <div className="spinner-border spinner-border-sm" role="status">
+            </div>
+        </div>
+    );
+}
+
 export default LoadingSpinner;
+export { LoadingSpinnerSmall };
