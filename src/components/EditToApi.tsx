@@ -15,7 +15,7 @@ interface EditFormProps {
     submitForm: FormEventHandler<HTMLFormElement>
 };
 
-const EditToApi = (): ReactElement => {
+function EditToApi(): ReactElement {
     const [user, setUser] = useState<User>({ name: "", username: "", email: "", password: "" });
     const [validUsername, setValidUsername] = useState<number>(-1);
     const [originalUsername, setOriginalUsername] = useState<string>("");
@@ -24,7 +24,7 @@ const EditToApi = (): ReactElement => {
     const params = useParams<EditApiParams>();
 
     useEffect(() => {
-        const getUserData = async (): Promise<void> => {
+        async function getUserData(): Promise<void> {
             console.clear();
             try {
                 const response = await fetch(`https://asp-net-core-api-demo.herokuapp.com/api/user/getuser/${params.username}`);
@@ -47,7 +47,7 @@ const EditToApi = (): ReactElement => {
         getUserData();
     }, [params.username]);
 
-    const submitForm = async (e: FormEvent): Promise<void> => {
+    async function submitForm(e: FormEvent): Promise<void> {
         e.preventDefault();
         console.log(user);
         try {
@@ -73,7 +73,7 @@ const EditToApi = (): ReactElement => {
         }
     }
 
-    const checkUsername = async (key: string): Promise<void> => {
+    async function checkUsername(key: string): Promise<void> {
         try {
             const response = await fetch(`https://asp-net-core-api-demo.herokuapp.com/api/user/checkforuser/${key}`);
             if (response.ok) {
@@ -93,7 +93,7 @@ const EditToApi = (): ReactElement => {
         }
     }
 
-    const startUsernameCheck = (username: string): void => {
+    function startUsernameCheck(username: string): void {
         if (checkerTimer !== undefined) {
             clearTimeout(checkerTimer);
         }
@@ -130,7 +130,7 @@ const EditToApi = (): ReactElement => {
 
 export default EditToApi;
 
-const EditForm = (props: EditFormProps): ReactElement => {
+function EditForm(props: EditFormProps): ReactElement {
     return (
         <form style={{ textAlign: 'center' }} className="row g-3" onSubmit={props.submitForm}>
             <div className="col-6">

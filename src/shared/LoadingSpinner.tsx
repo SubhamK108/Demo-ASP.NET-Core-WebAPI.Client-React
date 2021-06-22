@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-const LoadingSpinner = (): ReactElement => {
+function LoadingSpinner(): ReactElement {
     return (
         <div style={{ marginTop: 100 }} className="d-flex justify-content-center">
             <div className="spinner-border" role="status">
@@ -10,7 +10,7 @@ const LoadingSpinner = (): ReactElement => {
     );
 }
 
-const LoadingSpinnerSmall = (): ReactElement => {
+function LoadingSpinnerSmall(): ReactElement {
     return (
         <div style={{ margin: 10, color: "#196ce0" }} className="d-flex justify-content-center">
             <div className="spinner-border spinner-border-sm" role="status">

@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Link } from "react-router-dom";
 
-const Navbar = (): ReactElement => {
+function Navbar(): ReactElement {
     return (
         <nav className="navbar navbar-dark bg-dark">
             <form className="container-fluid justify-content-start">
@@ -20,6 +20,9 @@ const Navbar = (): ReactElement => {
                 </Link>
                 <Link to="/delete_to_api">
                     <button className="btn btn-sm btn-secondary m-3" type="button">Delete To API</button>
+                </Link>
+                <Link to="/notes">
+                    <button className="btn btn-sm btn-secondary m-3" type="button">Notes</button>
                 </Link>
             </form>
         </nav>

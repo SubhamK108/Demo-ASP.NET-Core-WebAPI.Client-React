@@ -3,11 +3,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useHistory } from "react-router-dom";
 import { User } from "../models/User";
 
-const PostToApi = (): ReactElement => {
+function PostToApi(): ReactElement {
     const [user, setUser] = useState<User>({ name: "", username: "", email: "", password: "" });
     const history = useHistory();
 
-    const submitForm = async (e: React.FormEvent): Promise<void> => {
+    async function submitForm(e: React.FormEvent): Promise<void> {
         console.clear();
         e.preventDefault();
         console.log(user);

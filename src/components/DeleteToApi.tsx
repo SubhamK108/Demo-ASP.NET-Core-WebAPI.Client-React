@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { useHistory } from "react-router-dom";
 
-const DeleteToApi = (): ReactElement => {
+function DeleteToApi(): ReactElement {
     const [key, setKey] = useState<string>("");
     const history = useHistory();
 

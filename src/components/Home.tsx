@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-const Home = (): ReactElement => {
+function Home(): ReactElement {
     return (
         <div style={{textAlign: 'center'}}>
             <h1>This is a Demo App</h1>

@@ -8,11 +8,11 @@ interface FetchTableProps {
     users: User[]
 };
 
-const GetFromApi = (): ReactElement => {
+function GetFromApi(): ReactElement {
     const [users, setUsers] = useState<User[]>([]);
 
     useEffect(() => {
-        const fetchUsers = async (): Promise<void> => {
+        async function fetchUsers(): Promise<void> {
             console.clear();
             try {
                 const response = await fetch("https://asp-net-core-api-demo.herokuapp.com/api/user/");
@@ -49,7 +49,7 @@ const GetFromApi = (): ReactElement => {
     );
 }
 
-const FetchTable = (props: FetchTableProps): ReactElement => {
+function FetchTable(props: FetchTableProps): ReactElement {
     const history = useHistory();
 
     return (
