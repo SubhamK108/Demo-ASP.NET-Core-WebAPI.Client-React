@@ -30,10 +30,11 @@ function EditToApi(): ReactElement {
                 const response = await fetch(`https://asp-net-core-api-demo.herokuapp.com/api/user/getuser/${params.username}`);
                 if (response.ok) {
                     console.log("Response Received 😀");
-                    const json: User = await response.json();
-                    console.log(json);
-                    setUser(json);
-                    setOriginalUsername(json.username);
+                    const userJson: User = await response.json();
+                    console.log(userJson);
+                    userJson.password = "";
+                    setUser(userJson);
+                    setOriginalUsername(userJson.username);
                 }
                 else {
                     throw new Error();
@@ -185,11 +186,10 @@ function EditForm(props: EditFormProps): ReactElement {
                 <label htmlFor="password" className="form-label">Password</label>
                 <input
                     style={{ textAlign: 'center' }}
-                    required
                     type="password"
                     className="form-control"
                     value={props.user.password}
-                    placeholder="Your Password"
+                    placeholder="Change Your Password"
                     onInput={e => props.setUser({ ...props.user, password: e.currentTarget.value })}
                 />
             </div>
